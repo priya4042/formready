@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FormReady - Exam Photo and Signature Resizer</title>
+<meta name="description" content="Resize your photo and signature to the exact KB and pixel size for SSC, IBPS, UPSC, NEET, JEE, CUET and RRB forms. Free, works on your phone, and your files never leave your device.">
+<link rel="canonical" href="https://priya4042.github.io/formready/">
+<meta property="og:title" content="FormReady - Exam Photo and Signature Resizer">
+<meta property="og:description" content="Exact KB and pixel size for SSC, IBPS, UPSC, NEET, JEE, CUET and RRB forms. Free and private.">
+<meta property="og:image" content="https://priya4042.github.io/formready/assets/og.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#16245C">
+{{HEAD}}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"FormReady","url":"https://priya4042.github.io/formready/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"description":"Resize exam form photos and signatures to the exact KB and pixel size, make passport photo sheets and PDFs. Runs in the browser."}</script>
+</head>
+<body>
+{{HEADER}}
+<main id="main" class="wrap">
+  <section class="intro">
+    <h1><span data-only="en">Make your photo and signature fit the exam form</span><span data-only="hi">अपनी फ़ोटो और हस्ताक्षर को परीक्षा फ़ॉर्म के साइज़ में लाएँ</span></h1>
+    <p class="lede"><span data-only="en">Pick your exam, add a picture, and get a JPG in the exact pixel size and KB range the form asks for.</span><span data-only="hi">परीक्षा चुनें, फ़ोटो डालें, और फ़ॉर्म जितने पिक्सेल और KB माँगता है, ठीक उतनी JPG पाएँ।</span></p>
+    <ul class="promise">
+      <li><span data-only="en">Free, no sign-up</span><span data-only="hi">मुफ़्त, कोई साइन-अप नहीं</span></li>
+      <li><span data-only="en">Files never leave your phone</span><span data-only="hi">फ़ाइल आपके फ़ोन से बाहर नहीं जाती</span></li>
+      <li><span data-only="en">Works offline after the first visit</span><span data-only="hi">पहली बार के बाद ऑफ़लाइन भी चलता है</span></li>
+    </ul>
+  </section>
+
+  <section class="sheet" aria-label="Resizer">
+    <div class="field-row">
+      <label class="fld"><span><span data-only="en">Exam</span><span data-only="hi">परीक्षा</span></span><select id="exam"></select></label>
+      <label class="fld"><span><span data-only="en">What are you uploading?</span><span data-only="hi">क्या अपलोड करना है?</span></span><select id="doc"></select></label>
+    </div>
+    <div class="spec" id="spec" aria-live="polite"></div>
+    <div class="work">
+      <div class="pane">
+        <div class="pane-h"><span class="step">1</span><h2><span data-only="en">Add and frame your picture</span><span data-only="hi">फ़ोटो डालें और सही से सेट करें</span></h2></div>
+        <div class="drop" id="drop" role="button" tabindex="0">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/><path d="M12 4v11"/><path d="M7.5 8.5L12 4l4.5 4.5"/></svg>
+          <b><span data-only="en">Choose a photo or scan</span><span data-only="hi">फ़ोटो या स्कैन चुनें</span></b>
+          <small><span data-only="en">or drop it here. JPG, PNG, WEBP or HEIC from the camera.</span><span data-only="hi">या यहाँ छोड़ें। JPG, PNG, WEBP या कैमरे की फ़ोटो।</span></small>
+          <input type="file" id="file" aria-label="Choose file" tabindex="-1" accept="image/*">
+        </div>
+        <div id="editor" hidden>
+          <div class="stage"><canvas id="crop" aria-label="Drag to move the picture inside the frame"></canvas><span class="hint"><span data-only="en">Drag to move</span><span data-only="hi">खिसकाने के लिए खींचें</span></span></div>
+          <div class="tools">
+            <label class="rng"><span data-only="en">Zoom</span><span data-only="hi">ज़ूम</span><input type="range" id="zoom" min="1" max="5" step="0.01" value="1"></label>
+            <button class="btn btn-sm" id="rot" type="button"><span data-only="en">Rotate</span><span data-only="hi">घुमाएँ</span></button>
+            <button class="btn btn-sm" id="reset" type="button"><span data-only="en">Reset</span><span data-only="hi">रीसेट</span></button>
+            <button class="btn btn-sm" id="change" type="button"><span data-only="en">Change picture</span><span data-only="hi">फ़ोटो बदलें</span></button>
+          </div>
+          <div class="opts">
+            <label class="check"><input type="checkbox" id="ink"><span><span data-only="en">Clean white paper (for signature, thumb and declaration scans)</span><span data-only="hi">कागज़ साफ़ सफ़ेद करें (हस्ताक्षर, अंगूठा और घोषणा के लिए)</span></span></label>
+            <label class="check"><input type="checkbox" id="namedate"><span><span data-only="en">Print name and date below the photo</span><span data-only="hi">फ़ोटो के नीचे नाम और तारीख़ लिखें</span></span></label>
+            <div class="subflds" id="nd-flds" hidden>
+              <label class="fld"><span><span data-only="en">Name</span><span data-only="hi">नाम</span></span><input type="text" id="nd-name" maxlength="40" autocomplete="name"></label>
+              <label class="fld"><span><span data-only="en">Date of photo</span><span data-only="hi">फ़ोटो की तारीख़</span></span><input type="date" id="nd-date"></label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pane">
+        <div class="pane-h"><span class="step">2</span><h2><span data-only="en">Check and download</span><span data-only="hi">जाँचें और डाउनलोड करें</span></h2></div>
+        <div class="empty" id="empty"><span data-only="en">Your ready file will appear here, with its size checked against the form.</span><span data-only="hi">आपकी तैयार फ़ाइल यहाँ दिखेगी, फ़ॉर्म के साइज़ से जाँच कर।</span></div>
+        <div id="result" hidden>
+          <div class="slot">
+            <div class="slot-h"><span id="slot-title">Photo</span><span id="slot-fmt">JPG</span></div>
+            <div class="slot-b">
+              <div class="slot-img"><img id="out-img" alt="Ready file preview"></div>
+              <dl class="slot-facts">
+                <div><dt><span data-only="en">File size</span><span data-only="hi">फ़ाइल साइज़</span></dt><dd id="f-size">-</dd></div>
+                <div><dt><span data-only="en">Pixels</span><span data-only="hi">पिक्सेल</span></dt><dd id="f-px">-</dd></div>
+                <div><dt><span data-only="en">Print size at 200 DPI</span><span data-only="hi">200 DPI पर प्रिंट साइज़</span></dt><dd id="f-cm">-</dd></div>
+                <div><dt><span data-only="en">Format</span><span data-only="hi">फ़ॉर्मेट</span></dt><dd>JPG</dd></div>
+              </dl>
+              <span class="stamp" id="stamp" aria-hidden="true"></span>
+            </div>
+            <div class="ruler" aria-hidden="true">
+              <div class="ruler-track"><div class="ruler-band" id="band"></div><div class="ruler-needle" id="needle"><span id="needle-l"></span></div></div>
+              <div class="ruler-ticks"><span>0 KB</span><span id="tick-max"></span></div>
+            </div>
+          </div>
+          <p class="note" id="verdict" role="status"></p>
+          <div class="actions">
+            <button class="btn btn-main" id="dl" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 4v11M7.5 10.5L12 15l4.5-4.5M5 20h14"/></svg><span data-only="en">Download JPG</span><span data-only="hi">JPG डाउनलोड करें</span></button>
+          </div>
+          <details class="adv" id="adv">
+            <summary><span data-only="en">Change pixels or KB limits</span><span data-only="hi">पिक्सेल या KB सीमा बदलें</span></summary>
+            <div class="grid4">
+              <label class="fld"><span><span data-only="en">Width (px)</span><span data-only="hi">चौड़ाई (px)</span></span><input type="number" id="w" min="20" max="4000" inputmode="numeric"></label>
+              <label class="fld"><span><span data-only="en">Height (px)</span><span data-only="hi">ऊँचाई (px)</span></span><input type="number" id="h" min="20" max="4000" inputmode="numeric"></label>
+              <label class="fld"><span><span data-only="en">Min KB</span><span data-only="hi">कम से कम KB</span></span><input type="number" id="min" min="1" max="5000" inputmode="numeric"></label>
+              <label class="fld"><span><span data-only="en">Max KB</span><span data-only="hi">ज़्यादा से ज़्यादा KB</span></span><input type="number" id="max" min="2" max="5000" inputmode="numeric"></label>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="sizes" aria-labelledby="sizes-h">
+    <h2 id="sizes-h"><span data-only="en">Photo and signature sizes by exam</span><span data-only="hi">परीक्षा के अनुसार फ़ोटो और हस्ताक्षर साइज़</span></h2>
+    <p><span data-only="en">These are the sizes most recent forms have asked for. Limits change between notices, so always match them with the official notification before you upload.</span><span data-only="hi">हाल के फ़ॉर्म में यही साइज़ माँगे गए हैं। हर नोटिस में सीमा बदल सकती है, इसलिए अपलोड से पहले आधिकारिक नोटिफ़िकेशन से ज़रूर मिलाएँ।</span></p>
+    <div class="tbl-wrap"><table id="size-table"><thead><tr><th><span data-only="en">Exam</span><span data-only="hi">परीक्षा</span></th><th><span data-only="en">Document</span><span data-only="hi">दस्तावेज़</span></th><th><span data-only="en">Pixels</span><span data-only="hi">पिक्सेल</span></th><th><span data-only="en">File size</span><span data-only="hi">फ़ाइल साइज़</span></th></tr></thead><tbody></tbody></table></div>
+  </section>
+
+  <section class="sec" aria-labelledby="more-h">
+    <h2 id="more-h"><span data-only="en">Other things the form needs</span><span data-only="hi">फ़ॉर्म की बाकी ज़रूरतें</span></h2>
+    <div class="cards">
+      <a class="tcard" href="passport.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><rect x="5.5" y="6.5" width="4" height="5" rx=".6"/><rect x="10" y="6.5" width="4" height="5" rx=".6"/><rect x="14.5" y="6.5" width="4" height="5" rx=".6"/><rect x="5.5" y="12.5" width="4" height="5" rx=".6"/><rect x="10" y="12.5" width="4" height="5" rx=".6"/><rect x="14.5" y="12.5" width="4" height="5" rx=".6"/></svg><span><b><span data-only="en">Passport photo sheet</span><span data-only="hi">पासपोर्ट फ़ोटो शीट</span></b><small><span data-only="en">8 photos on a 4 x 6 print or 30 on A4, ready for any photo shop.</span><span data-only="hi">4 x 6 प्रिंट पर 8 या A4 पर 30 फ़ोटो, किसी भी फ़ोटो शॉप के लिए तैयार।</span></small></span></a>
+      <a class="tcard" href="pdf.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 13h6M9 16h6"/></svg><span><b><span data-only="en">Images to PDF and merge PDF</span><span data-only="hi">इमेज से PDF और PDF जोड़ें</span></b><small><span data-only="en">Turn certificate photos into one PDF and keep it under the size limit.</span><span data-only="hi">सर्टिफ़िकेट की फ़ोटो को एक PDF में बदलें और साइज़ सीमा में रखें।</span></small></span></a>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="faq-h">
+    <h2 id="faq-h"><span data-only="en">Questions</span><span data-only="hi">सवाल</span></h2>
+    <div class="faq">
+      <details><summary><span data-only="en">Are my photos uploaded anywhere?</span><span data-only="hi">क्या मेरी फ़ोटो कहीं अपलोड होती है?</span></summary><p><span data-only="en">No. Everything happens inside your browser. The picture is never sent to a server, so it is safe to use for your ID photo and signature.</span><span data-only="hi">नहीं। सब कुछ आपके ब्राउज़र में ही होता है। फ़ोटो किसी सर्वर पर नहीं जाती, इसलिए पहचान वाली फ़ोटो और हस्ताक्षर के लिए सुरक्षित है।</span></p></details>
+      <details><summary><span data-only="en">The form says "file size must be between 20 KB and 50 KB". Will this pass?</span><span data-only="hi">फ़ॉर्म कहता है "फ़ाइल 20 KB से 50 KB के बीच हो"। क्या यह पास होगी?</span></summary><p><span data-only="en">Yes. FormReady keeps a small safety margin on both ends, so the file passes whether the website counts 1 KB as 1000 or 1024 bytes.</span><span data-only="hi">हाँ। FormReady दोनों तरफ़ थोड़ा मार्जिन रखता है, ताकि वेबसाइट 1 KB को 1000 गिने या 1024 बाइट, फ़ाइल पास हो जाए।</span></p></details>
+      <details><summary><span data-only="en">My signature file is too small. What happens?</span><span data-only="hi">मेरी हस्ताक्षर फ़ाइल बहुत छोटी है। तब क्या होगा?</span></summary><p><span data-only="en">A clean signature can be just a few KB. FormReady first uses the best quality, and if it is still under the minimum it adds blank space inside the file. The picture itself does not change.</span><span data-only="hi">साफ़ हस्ताक्षर कुछ ही KB का हो सकता है। FormReady पहले सबसे अच्छी क्वालिटी लगाता है, फिर भी कम हो तो फ़ाइल के अंदर खाली जगह जोड़ता है। तस्वीर नहीं बदलती।</span></p></details>
+      <details><summary><span data-only="en">How should I take the signature photo?</span><span data-only="hi">हस्ताक्षर की फ़ोटो कैसे लें?</span></summary><p><span data-only="en">Sign with a black pen on plain white paper, in daylight, with the phone straight above the page. Do not sign in capital letters. Then tick "Clean white paper" so the background becomes pure white.</span><span data-only="hi">सादे सफ़ेद कागज़ पर काले पेन से, दिन की रोशनी में हस्ताक्षर करें और फ़ोन को कागज़ के ठीक ऊपर रखें। बड़े अक्षरों (कैपिटल) में हस्ताक्षर न करें। फिर "कागज़ साफ़ सफ़ेद करें" चुनें।</span></p></details>
+      <details><summary><span data-only="en">The exam is not in the list.</span><span data-only="hi">मेरी परीक्षा लिस्ट में नहीं है।</span></summary><p><span data-only="en">Choose "Custom size", then open "Change pixels or KB limits" and type the numbers from your notification.</span><span data-only="hi">"अपना साइज़" चुनें, फिर "पिक्सेल या KB सीमा बदलें" खोलकर अपने नोटिफ़िकेशन वाले नंबर डालें।</span></p></details>
+    </div>
+  </section>
+</main>
+
+{{FOOTER}}
+<script src="assets/common.js"></script>
+<script src="assets/presets.js"></script>
+<script src="assets/resizer.js"></script>
+</body>
+</html>

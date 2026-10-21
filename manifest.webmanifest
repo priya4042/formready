@@ -1,0 +1,16 @@
+{
+  "name": "FormReady - Exam Photo and Signature Resizer",
+  "short_name": "FormReady",
+  "description": "Resize exam form photos and signatures to the exact KB and pixel size, make passport photo sheets and PDFs.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#F3F6FC",
+  "theme_color": "#16245C",
+  "lang": "en-IN",
+  "icons": [
+    { "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "assets/icon-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

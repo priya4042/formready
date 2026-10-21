@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Passport Photo Sheet - FormReady</title>
+<meta name="description" content="Make a print-ready sheet of passport size photos: 8 on a 4 x 6 inch print or 30 on A4, in 35 x 45 mm, 2 x 2 inch or stamp size. Free and private.">
+<link rel="canonical" href="https://priya4042.github.io/formready/passport.html">
+<meta property="og:title" content="Passport Photo Sheet - FormReady">
+<meta property="og:description" content="8 passport photos on one 4 x 6 print. Free, in your browser.">
+<meta property="og:image" content="https://priya4042.github.io/formready/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#16245C">
+{{HEAD}}
+</head>
+<body>
+{{HEADER}}
+<main id="main" class="wrap">
+  <section class="intro">
+    <h1><span data-only="en">Passport photo sheet for printing</span><span data-only="hi">प्रिंट के लिए पासपोर्ट फ़ोटो शीट</span></h1>
+    <p class="lede"><span data-only="en">Frame your photo once and get a full sheet with cut lines. Print a 4 x 6 at any photo shop for a few rupees.</span><span data-only="hi">एक बार फ़ोटो सेट करें और कटिंग लाइन वाली पूरी शीट पाएँ। किसी भी फ़ोटो शॉप पर 4 x 6 प्रिंट कुछ रुपये में होता है।</span></p>
+  </section>
+
+  <section class="sheet" aria-label="Photo sheet maker">
+    <div class="field-row">
+      <label class="fld"><span><span data-only="en">Photo size</span><span data-only="hi">फ़ोटो साइज़</span></span>
+        <select id="psize">
+          <option value="35x45">35 x 45 mm (passport, most forms)</option>
+          <option value="50.8x50.8">2 x 2 inch (51 x 51 mm, US visa)</option>
+          <option value="25x35">25 x 35 mm (stamp size)</option>
+        </select></label>
+      <label class="fld"><span><span data-only="en">Paper</span><span data-only="hi">कागज़</span></span>
+        <select id="paper">
+          <option value="4x6">4 x 6 inch photo print</option>
+          <option value="a4">A4 sheet</option>
+        </select></label>
+      <label class="fld"><span><span data-only="en">How many photos</span><span data-only="hi">कितनी फ़ोटो</span></span><select id="count"></select></label>
+    </div>
+    <div class="work">
+      <div class="pane">
+        <div class="pane-h"><span class="step">1</span><h2><span data-only="en">Add and frame your photo</span><span data-only="hi">फ़ोटो डालें और सेट करें</span></h2></div>
+        <div class="drop" id="drop" role="button" tabindex="0">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/><path d="M12 4v11"/><path d="M7.5 8.5L12 4l4.5 4.5"/></svg>
+          <b><span data-only="en">Choose your photo</span><span data-only="hi">अपनी फ़ोटो चुनें</span></b>
+          <small><span data-only="en">Face straight, plain light background, good daylight.</span><span data-only="hi">चेहरा सीधा, सादा हल्का बैकग्राउंड, अच्छी रोशनी।</span></small>
+          <input type="file" id="file" aria-label="Choose file" tabindex="-1" accept="image/*">
+        </div>
+        <div id="editor" hidden>
+          <div class="stage"><canvas id="crop" aria-label="Drag to move the photo inside the frame"></canvas><span class="hint"><span data-only="en">Head and top of shoulders</span><span data-only="hi">सिर और कंधों का ऊपरी हिस्सा</span></span></div>
+          <div class="tools">
+            <label class="rng"><span data-only="en">Zoom</span><span data-only="hi">ज़ूम</span><input type="range" id="zoom" min="1" max="5" step="0.01" value="1"></label>
+            <button class="btn btn-sm" id="rot" type="button"><span data-only="en">Rotate</span><span data-only="hi">घुमाएँ</span></button>
+            <button class="btn btn-sm" id="change" type="button"><span data-only="en">Change photo</span><span data-only="hi">फ़ोटो बदलें</span></button>
+          </div>
+          <div class="opts">
+            <label class="check"><input type="checkbox" id="border" checked><span><span data-only="en">Thin white border around each photo</span><span data-only="hi">हर फ़ोटो के चारों ओर पतली सफ़ेद पट्टी</span></span></label>
+            <label class="check"><input type="checkbox" id="namedate"><span><span data-only="en">Name and date below each photo</span><span data-only="hi">हर फ़ोटो के नीचे नाम और तारीख़</span></span></label>
+            <div class="subflds" id="nd-flds" hidden>
+              <label class="fld"><span><span data-only="en">Name</span><span data-only="hi">नाम</span></span><input type="text" id="nd-name" maxlength="40" autocomplete="name"></label>
+              <label class="fld"><span><span data-only="en">Date of photo</span><span data-only="hi">फ़ोटो की तारीख़</span></span><input type="date" id="nd-date"></label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pane">
+        <div class="pane-h"><span class="step">2</span><h2><span data-only="en">Download the sheet</span><span data-only="hi">शीट डाउनलोड करें</span></h2></div>
+        <div class="empty" id="empty"><span data-only="en">The print sheet will appear here.</span><span data-only="hi">प्रिंट शीट यहाँ दिखेगी।</span></div>
+        <div id="result" hidden>
+          <canvas id="sheet" class="preview-sheet" aria-label="Print sheet preview"></canvas>
+          <p class="note" id="sheet-info"></p>
+          <div class="actions">
+            <button class="btn btn-main" id="dl-jpg" type="button"><span data-only="en">Download JPG for print</span><span data-only="hi">प्रिंट के लिए JPG</span></button>
+            <button class="btn" id="dl-pdf" type="button"><span data-only="en">Download PDF</span><span data-only="hi">PDF डाउनलोड</span></button>
+          </div>
+          <p class="note"><span data-only="en">Ask the shop to print at actual size (100%, no fit to page) so each photo comes out exactly right.</span><span data-only="hi">शॉप वाले से "असली साइज़ (100%)" पर प्रिंट करने को कहें, "फ़िट टू पेज" नहीं, ताकि हर फ़ोटो सही साइज़ की आए।</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+{{FOOTER}}
+<script src="assets/common.js"></script>
+<script src="assets/passport.js"></script>
+</body>
+</html>

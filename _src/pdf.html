@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Images to PDF and Merge PDF - FormReady</title>
+<meta name="description" content="Turn photos of certificates and mark sheets into one PDF under a size limit, or join several PDFs into one. Free, and files never leave your device.">
+<link rel="canonical" href="https://priya4042.github.io/formready/pdf.html">
+<meta property="og:title" content="Images to PDF and Merge PDF - FormReady">
+<meta property="og:description" content="Certificates to one PDF under the size limit. Free and private.">
+<meta property="og:image" content="https://priya4042.github.io/formready/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#16245C">
+{{HEAD}}
+</head>
+<body>
+{{HEADER}}
+<main id="main" class="wrap">
+  <section class="intro">
+    <h1><span data-only="en">PDFs for your documents</span><span data-only="hi">आपके दस्तावेज़ों के लिए PDF</span></h1>
+    <p class="lede"><span data-only="en">Forms often ask for certificates, caste or income proof as one PDF under a size limit. Make it here from phone photos, or join PDFs you already have.</span><span data-only="hi">फ़ॉर्म अक्सर सर्टिफ़िकेट, जाति या आय प्रमाण एक PDF में, तय साइज़ के अंदर माँगते हैं। फ़ोन की फ़ोटो से यहीं बनाएँ, या अपनी PDF जोड़ें।</span></p>
+  </section>
+
+  <section class="sheet" aria-label="PDF tools">
+    <div class="tabs" role="tablist">
+      <button role="tab" id="t-img" aria-selected="true" aria-controls="p-img"><span data-only="en">Images to PDF</span><span data-only="hi">इमेज से PDF</span></button>
+      <button role="tab" id="t-merge" aria-selected="false" aria-controls="p-merge" tabindex="-1"><span data-only="en">Merge PDFs</span><span data-only="hi">PDF जोड़ें</span></button>
+    </div>
+
+    <div id="p-img" role="tabpanel" aria-labelledby="t-img">
+      <div class="field-row">
+        <label class="fld"><span><span data-only="en">Page size</span><span data-only="hi">पेज साइज़</span></span>
+          <select id="i-page"><option value="a4">A4, picture fitted with margin</option><option value="fit">Same as each picture</option></select></label>
+        <label class="fld"><span><span data-only="en">Keep the PDF under (KB)</span><span data-only="hi">PDF इससे कम रहे (KB)</span></span>
+          <input type="number" id="i-max" min="50" max="20000" placeholder="e.g. 500" inputmode="numeric"></label>
+        <label class="fld"><span><span data-only="en">Scan look</span><span data-only="hi">स्कैन जैसा</span></span>
+          <select id="i-look"><option value="color">Colour, as taken</option><option value="clean">Clean black and white document</option></select></label>
+      </div>
+      <div class="pane">
+        <div class="drop" id="i-drop" role="button" tabindex="0">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/><path d="M12 4v11"/><path d="M7.5 8.5L12 4l4.5 4.5"/></svg>
+          <b><span data-only="en">Choose pictures (one per page)</span><span data-only="hi">फ़ोटो चुनें (हर पेज के लिए एक)</span></b>
+          <small><span data-only="en">You can pick many at once and change the order below.</span><span data-only="hi">एक साथ कई चुन सकते हैं और नीचे क्रम बदल सकते हैं।</span></small>
+          <input type="file" id="i-file" aria-label="Choose file" tabindex="-1" accept="image/*" multiple>
+        </div>
+        <ul class="flist" id="i-list"></ul>
+        <div class="actions"><button class="btn btn-main" id="i-go" type="button" disabled><span data-only="en">Make PDF</span><span data-only="hi">PDF बनाएँ</span></button></div>
+        <p class="out-line" id="i-out" role="status"></p>
+      </div>
+    </div>
+
+    <div id="p-merge" role="tabpanel" aria-labelledby="t-merge" hidden>
+      <div class="pane">
+        <div class="drop" id="m-drop" role="button" tabindex="0">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M12 11v6M9 14h6"/></svg>
+          <b><span data-only="en">Choose PDF files</span><span data-only="hi">PDF फ़ाइलें चुनें</span></b>
+          <small><span data-only="en">They are joined in the order shown below.</span><span data-only="hi">ये नीचे दिखे क्रम में जुड़ेंगी।</span></small>
+          <input type="file" id="m-file" aria-label="Choose file" tabindex="-1" accept="application/pdf,.pdf" multiple>
+        </div>
+        <ul class="flist" id="m-list"></ul>
+        <div class="actions"><button class="btn btn-main" id="m-go" type="button" disabled><span data-only="en">Merge into one PDF</span><span data-only="hi">एक PDF में जोड़ें</span></button></div>
+        <p class="out-line" id="m-out" role="status"></p>
+      </div>
+    </div>
+  </section>
+</main>
+{{FOOTER}}
+<script src="assets/common.js"></script>
+<script src="assets/vendor/pdf-lib.min.js"></script>
+<script src="assets/pdf.js"></script>
+</body>
+</html>
