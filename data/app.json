@@ -1,0 +1,25 @@
+{
+  "updated": "2026-10-22",
+  "note": "Dates from the official UPSC, SSC and IBPS calendars and NTA's past cycles. Expected dates are marked; always confirm on the official site.",
+  "calendar": [
+    {"id": "jee27-s1-apply", "en": "JEE Main 2027 (Session 1) registration", "hi": "JEE Main 2027 (सत्र 1) पंजीकरण", "kind": "apply", "start": "2026-10-28", "end": "2026-11-25", "expected": true, "site": "https://jeemain.nta.nic.in"},
+    {"id": "rrb-po-pre", "en": "IBPS RRB Officer Scale I prelims", "hi": "IBPS RRB ऑफ़िसर स्केल I प्रारंभिक", "kind": "exam", "start": "2026-11-21", "end": "2026-11-22", "site": "https://www.ibps.in"},
+    {"id": "chsl26-exam", "en": "SSC CHSL 2026 exam", "hi": "SSC CHSL 2026 परीक्षा", "kind": "exam", "start": "2026-11-30", "end": "2026-12-31", "expected": true, "site": "https://ssc.gov.in"},
+    {"id": "nda27-1-apply", "en": "UPSC NDA and CDS (I) 2027 applications", "hi": "UPSC NDA और CDS (I) 2027 आवेदन", "kind": "apply", "start": "2026-12-02", "end": "2026-12-22", "expected": true, "site": "https://upsconline.nic.in"},
+    {"id": "rrb-oa-pre", "en": "IBPS RRB Office Assistant prelims", "hi": "IBPS RRB ऑफ़िस असिस्टेंट प्रारंभिक", "kind": "exam", "start": "2026-12-06", "end": "2026-12-13", "site": "https://www.ibps.in"},
+    {"id": "rrb-po-mains", "en": "IBPS RRB Officer Scale I mains", "hi": "IBPS RRB ऑफ़िसर स्केल I मुख्य", "kind": "exam", "start": "2026-12-20", "end": "2026-12-20", "site": "https://www.ibps.in"},
+    {"id": "clerk-mains", "en": "IBPS Clerk mains", "hi": "IBPS क्लर्क मुख्य", "kind": "exam", "start": "2026-12-27", "end": "2026-12-27", "site": "https://www.ibps.in"},
+    {"id": "cse27-apply", "en": "UPSC Civil Services 2027 applications", "hi": "UPSC सिविल सेवा 2027 आवेदन", "kind": "apply", "start": "2027-01-13", "end": "2027-02-02", "site": "https://upsconline.nic.in"},
+    {"id": "cuet27-apply", "en": "CUET UG 2027 registration", "hi": "CUET UG 2027 पंजीकरण", "kind": "apply", "start": "2027-01-15", "end": "2027-02-28", "expected": true, "site": "https://cuet.nta.nic.in"},
+    {"id": "jee27-s1-exam", "en": "JEE Main 2027 Session 1 exam", "hi": "JEE Main 2027 सत्र 1 परीक्षा", "kind": "exam", "start": "2027-01-22", "end": "2027-01-30", "site": "https://jeemain.nta.nic.in"},
+    {"id": "rrb-oa-mains", "en": "IBPS RRB Office Assistant mains", "hi": "IBPS RRB ऑफ़िस असिस्टेंट मुख्य", "kind": "exam", "start": "2027-01-30", "end": "2027-01-30", "site": "https://www.ibps.in"},
+    {"id": "ese27-pre", "en": "UPSC Engineering Services prelims 2027", "hi": "UPSC इंजीनियरिंग सेवा प्रारंभिक 2027", "kind": "exam", "start": "2027-01-31", "end": "2027-01-31", "site": "https://upsc.gov.in"},
+    {"id": "neet27-apply", "en": "NEET UG 2027 registration", "hi": "NEET UG 2027 पंजीकरण", "kind": "apply", "start": "2027-02-07", "end": "2027-03-07", "expected": true, "site": "https://neet.nta.nic.in"},
+    {"id": "cms27-apply", "en": "UPSC Combined Medical Services 2027 applications", "hi": "UPSC संयुक्त चिकित्सा सेवा 2027 आवेदन", "kind": "apply", "start": "2027-03-03", "end": "2027-03-23", "expected": true, "site": "https://upsconline.nic.in"},
+    {"id": "nda27-1-exam", "en": "UPSC NDA and CDS (I) 2027 exam", "hi": "UPSC NDA और CDS (I) 2027 परीक्षा", "kind": "exam", "start": "2027-04-11", "end": "2027-04-11", "site": "https://upsc.gov.in"},
+    {"id": "neet27-exam", "en": "NEET UG 2027 exam", "hi": "NEET UG 2027 परीक्षा", "kind": "exam", "start": "2027-05-02", "end": "2027-05-02", "expected": true, "site": "https://neet.nta.nic.in"},
+    {"id": "cse27-pre", "en": "UPSC Civil Services prelims 2027", "hi": "UPSC सिविल सेवा प्रारंभिक 2027", "kind": "exam", "start": "2027-05-23", "end": "2027-05-23", "site": "https://upsc.gov.in"},
+    {"id": "capf27-exam", "en": "UPSC CAPF (AC) 2027 exam", "hi": "UPSC CAPF (AC) 2027 परीक्षा", "kind": "exam", "start": "2027-07-04", "end": "2027-07-04", "site": "https://upsc.gov.in"},
+    {"id": "cms27-exam", "en": "UPSC Combined Medical Services 2027 exam", "hi": "UPSC संयुक्त चिकित्सा सेवा 2027 परीक्षा", "kind": "exam", "start": "2027-07-18", "end": "2027-07-18", "site": "https://upsc.gov.in"}
+  ]
+}
