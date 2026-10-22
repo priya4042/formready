@@ -1,5 +1,5 @@
 // Network first so updates show at once; cached copy when offline.
-var CACHE = "formready-v1";
+var CACHE = "formready-v2";
 var CORE = ["./", "index.html", "passport.html", "pdf.html", "privacy.html", "assets/app.css", "assets/common.js", "assets/presets.js",
   "assets/resizer.js", "assets/passport.js", "assets/pdf.js", "assets/vendor/pdf-lib.min.js", "assets/icon.svg", "assets/icon-192.png"];
 self.addEventListener("install", function (e) { e.waitUntil(caches.open(CACHE).then(function (c) { return c.addAll(CORE); }).then(function () { return self.skipWaiting(); })); });

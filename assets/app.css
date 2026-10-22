@@ -199,3 +199,16 @@ td:first-child { font-weight: 650; color: var(--ink); }
 
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
 @media print { .top, .foot, .sheet .tools { display: none; } }
+
+/* Android app download strip */
+.get-app { background: #16245C; color: #fff; margin-top: 30px; padding: 18px 0; }
+.get-app .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; }
+.get-app img { border-radius: 12px; }
+.get-app p { margin: 0; flex: 1 1 240px; display: grid; gap: 2px; }
+.get-app p span { opacity: .85; font-size: .92rem; }
+.get-btn { background: #F5A524; color: #1D1B4C; font-weight: 700; border-radius: 999px; padding: 11px 18px; text-decoration: none; white-space: nowrap; }
+.get-btn small { font-weight: 500; opacity: .8; }
+.get-btn:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.get-more { font-size: .9rem; }
+.get-more a { color: #fff; }
+.get-app + .foot { margin-top: 0; }

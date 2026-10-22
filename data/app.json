@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-23",
+  "updated": "2026-10-24",
   "note": "Dates from the official UPSC, SSC and IBPS calendars and NTA's past cycles. Expected dates are marked; always confirm on the official site.",
   "calendar": [
     {"id": "jee27-s1-apply", "en": "JEE Main 2027 (Session 1) registration", "hi": "JEE Main 2027 (सत्र 1) पंजीकरण", "kind": "apply", "start": "2026-10-28", "end": "2026-11-25", "expected": true, "site": "https://jeemain.nta.nic.in"},
@@ -42,5 +42,15 @@
     {"id": "rrb_ntpc_grad", "en": "RRB NTPC (graduate posts)", "hi": "RRB NTPC (स्नातक पद)", "min": 18, "max": 33, "cutoff": "2027-01-01", "cutoffNote": {"en": "CEN 06/2026 notice.", "hi": "CEN 06/2026 नोटिस।"}, "source": "https://rrb.indianrailways.gov.in/-/image/1791375679144CEN_06_2026_NTPC_G.pdf/examsDocuments"},
     {"id": "rrb_ntpc_ug", "en": "RRB NTPC (12th pass posts)", "hi": "RRB NTPC (12वीं पास पद)", "min": 18, "max": 30, "cutoff": "2027-01-01", "cutoffNote": {"en": "CEN 07/2026 notice.", "hi": "CEN 07/2026 नोटिस।"}, "source": "https://rrb.indianrailways.gov.in/-/image/1791999622770Final_CEN_07-2026_14.10.2026_English.pdf/examsDocuments"},
     {"id": "rrb_group_d", "en": "RRB Group D (Level 1)", "hi": "RRB ग्रुप D (लेवल 1)", "min": 18, "max": 33, "cutoff": "2026-01-01", "cutoffNote": {"en": "CEN 09/2025 notice; no newer Level 1 notice yet. Change the date when the new notice is out.", "hi": "CEN 09/2025 नोटिस; लेवल 1 का नया नोटिस अभी नहीं आया। नया नोटिस आने पर तारीख बदलें।"}, "source": "https://rrbsecunderabad.gov.in/wp-content/uploads/2026/01/Final-Detailed-CEN-09-2025-Level-1-updated-on-30.01.2026-6-pm.pdf"}
+  ],
+  "alerts": [
+    {"id": "ibps-05fcf1", "exam": "ibps", "kind": "admit", "en": "IBPS SO (CRP-SPL-XVI) mains call letter out", "hi": "IBPS SO (CRP-SPL-XVI) मेन्स परीक्षा का कॉल लेटर जारी", "date": "2026-10-22", "url": "https://www.ibps.in/index.php/specialist-officers-xvi/"},
+    {"id": "ibps-b8adf5", "exam": "ibps", "kind": "result", "en": "IBPS SO (CRP-SPL-XVI) prelims scores out", "hi": "IBPS SO (CRP-SPL-XVI) प्रारंभिक परीक्षा के स्कोर जारी", "date": "2026-10-22", "url": "https://www.ibps.in/index.php/specialist-officers-xvi/"},
+    {"id": "upsc-707597", "exam": "upsc", "kind": "result", "en": "UPSC CDS (II) 2026 written result out", "hi": "UPSC CDS (II) 2026 का लिखित परीक्षा रिज़ल्ट जारी", "date": "2026-10-19", "url": "https://www.upsc.gov.in/whats-new/Combined%20Defence%20Services%20Examination%20%28II%29%2C%202026/Written%20Result"},
+    {"id": "ssc-2f3fb6", "exam": "ssc", "kind": "answerkey", "en": "SSC Selection Post Phase XIV 2026 tentative answer keys and response sheets out", "hi": "SSC सिलेक्शन पोस्ट फ़ेज़ XIV 2026 की अस्थायी आंसर की और रिस्पॉन्स शीट जारी", "date": "2026-10-09", "url": "https://ssc.gov.in/api/attachment/uploads/masterData/AnswerKeys/writeup_rhq.pdf"},
+    {"id": "upsc-5ea6df", "exam": "upsc", "kind": "result", "en": "UPSC NDA and NA (II) 2026 written result out", "hi": "UPSC NDA और NA (II) 2026 का लिखित परीक्षा रिज़ल्ट जारी", "date": "2026-10-09", "url": "https://www.upsc.gov.in/whats-new/National%20Defence%20Academy%20and%20Naval%20Academy%20Examination%20%28II%29%2C%202026/Written%20Result"},
+    {"id": "ssc-493e17", "exam": "ssc", "kind": "result", "en": "SSC CHSL 2025 final result out", "hi": "SSC CHSL 2025 का फ़ाइनल रिज़ल्ट जारी", "date": "2026-10-07", "url": "https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/writeup_final_chsl_2025_07102026.pdf"},
+    {"id": "rrb-46462d", "exam": "rrb", "kind": "result", "en": "RRB ALP (CEN 01/2025) CBT-2 result and cut-off out (RRB Chandigarh)", "hi": "RRB ALP (CEN 01/2025) CBT-2 का रिज़ल्ट और कट-ऑफ़ जारी (RRB चंडीगढ़)", "date": "2026-10-01", "url": "https://rrb.indianrailways.gov.in/chandigarh"},
+    {"id": "ugcnet-dc9f01", "exam": "ugcnet", "kind": "result", "en": "UGC NET June 2026 re-exam result out (English, Commerce, Sociology)", "hi": "UGC NET जून 2026 री-एग्ज़ाम (अंग्रेज़ी, कॉमर्स, समाजशास्त्र) का रिज़ल्ट जारी", "date": "2026-09-17", "url": "https://nta.ac.in/Download/Notice/Notice_20260918000302.pdf"}
   ]
 }

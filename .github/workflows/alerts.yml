@@ -1,0 +1,39 @@
+name: Exam alerts
+
+on:
+  schedule:
+    - cron: "30 0 * * *"  # 06:00 IST
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: exam-alerts
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Check official sites
+        run: python _tools/check_alerts.py --apply
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- data/app.json; then
+            echo "No changes"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898699+github-actions[bot]@users.noreply.github.com"
+          git add data/app.json
+          git commit -m "Update exam alerts"
+          git push
