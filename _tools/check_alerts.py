@@ -27,6 +27,8 @@ from pathlib import Path
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36")
 TIMEOUT = 20
+SITE_BUDGET = 150   # seconds per site, so one slow site cannot use up the whole run
+RUN_BUDGET = 900    # seconds for all sites (the workflow allows 20 minutes)
 MAX_AGE_DAYS = 60
 MAX_ALERTS = 60
 IST = dt.timezone(dt.timedelta(hours=5, minutes=30))
@@ -64,12 +66,21 @@ def log(msg):
 
 # ---------- fetching ----------
 
+class BudgetUsed(Exception):
+    """A site took longer than SITE_BUDGET; it is skipped and reported."""
+
+
 class Fetcher:
     """urllib with cookies, gzip, one retry, and an unverified-TLS fallback per host."""
 
     def __init__(self):
         self.jar = http.cookiejar.CookieJar()
         self.unverified_hosts = set()
+        self.deadline = None
+
+    def _check_budget(self):
+        if self.deadline and time.time() > self.deadline:
+            raise BudgetUsed("time budget for this site used up")
 
     def _opener(self, verify):
         ctx = ssl.create_default_context() if verify else ssl._create_unverified_context()
@@ -86,10 +97,18 @@ class Fetcher:
         verify = host not in self.unverified_hosts
         last = None
         for attempt in range(2):
+            self._check_budget()
             try:
                 with self._opener(verify).open(urllib.request.Request(url, headers=headers), timeout=TIMEOUT) as r:
-                    return self._decode(r.read(), r.headers)
-            except urllib.error.HTTPError:
+                    body = bytearray()
+                    while True:
+                        chunk = r.read(65536)
+                        if not chunk:
+                            break
+                        body += chunk
+                        self._check_budget()
+                    return self._decode(bytes(body), r.headers)
+            except (urllib.error.HTTPError, BudgetUsed):
                 raise
             except Exception as e:  # noqa: BLE001
                 last = e
@@ -532,8 +551,13 @@ def main():
 
     f = Fetcher()
     candidates = []
+    started = time.time()
     for name, url, fn in SITES:
         log(f"- {name}: {url}")
+        if time.time() - started > RUN_BUDGET:
+            report.append(f"{name:9} SKIPPED: run time budget used up")
+            continue
+        f.deadline = time.time() + SITE_BUDGET
         try:
             items = fn(f)
             host = urllib.parse.urlsplit(url).hostname
